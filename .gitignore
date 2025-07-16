@@ -1,0 +1,77 @@
+# .NET Core build folders
+bin/
+obj/
+
+# Visual Studio and VS Code files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Visual Studio cache files
+*.[Cc]ache
+!?*.[Cc]ache/
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Others
+.DS_Store
+*.swp
+*~
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Entity Framework Core
+*.db
+*.db-shm
+*.db-wal
+
+# Local development settings
+appsettings.Development.json
+appsettings.Local.json
