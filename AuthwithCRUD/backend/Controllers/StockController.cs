@@ -7,6 +7,7 @@ using backend.Dtos.Stock;
 using backend.Interfaces;
 using backend.Mappers;
 using backend.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,7 @@ namespace backend.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
             if (ModelState.IsValid)
