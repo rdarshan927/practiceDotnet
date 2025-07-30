@@ -39,7 +39,18 @@ namespace backend.Controllers
         [Authorize]
         public async Task<IActionResult> AddPorfolio(string symbol)
         {
+            // Debug claims
+            var claims = User?.Claims?.Select(c => new { c.Type, c.Value }).ToList();
+            Console.WriteLine($"Claims in token: {System.Text.Json.JsonSerializer.Serialize(claims)}");
+            
             var username = User.GetUsername();
+            
+            if (string.IsNullOrEmpty(username))
+            {
+                return Unauthorized("Unable to determine user from token. Available claims: " + 
+                    System.Text.Json.JsonSerializer.Serialize(claims));
+            }
+            
             var appUser = await _userManager.FindByNameAsync(username);
             var stock = await _stockRepo.GetBySymbolAsync(symbol);
 

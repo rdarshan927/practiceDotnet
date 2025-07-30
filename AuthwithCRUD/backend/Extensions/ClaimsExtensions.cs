@@ -10,7 +10,22 @@ namespace backend.Extensions
     {
         public static string GetUsername(this ClaimsPrincipal user)
         {
-            return user.Claims.SingleOrDefault(x => x.Type.Equals("https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname")).Value;
+            try
+            {
+                // Add debug to see what claims are available
+                var claims = user?.Claims?.ToList();
+                
+                // Try each claim type that might contain the username
+                return user?.FindFirst("given_name")?.Value ??
+                       user?.FindFirst(ClaimTypes.Name)?.Value ??
+                       user?.FindFirst(ClaimTypes.Email)?.Value ??
+                       user?.FindFirst("email")?.Value ??
+                       string.Empty;
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
     }
 }
